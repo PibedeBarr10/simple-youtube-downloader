@@ -34,8 +34,11 @@ class App(object):
         self.label2.place(relx = 0.01, rely = 0.6, relwidth = 0.18)
 
     def button_click(self):
-        self.lista = show_options(self.textbox.get())
-        self.listbox.insert(0, *self.lista)
+        try:
+            self.lista = show_options(self.textbox.get())
+            self.listbox.insert(0, *self.lista)
+        except:
+            messagebox.showinfo("Błąd", "Prawdopodobnie brak dostępu do internetu")
 
     def download(self):
         try:
@@ -49,6 +52,5 @@ class App(object):
             self.text.set("Pobrano film")
         except:
             messagebox.showinfo("Błąd", "Nie można pobrać pliku")
-
 
 app = App()
