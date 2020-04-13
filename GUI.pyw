@@ -4,7 +4,7 @@ from YTload import show_options
 class App(object):
     def __init__(self):
         self.window = Tk()
-        self.window.title("Youtube videos downloader")
+        self.window.title("Youtube mp4 videos downloader")
         self.window.geometry("800x600+40+40")
         self.createWidgets()
 
@@ -28,7 +28,7 @@ class App(object):
         self.button2.place(relx = 0.01, rely = 0.5)
 
         self.text = StringVar()
-        self.text.set("Nic")
+        self.text.set("Status")
 
         self.label2 = Label(textvariable = self.text, anchor = "w")
         self.label2.place(relx = 0.01, rely = 0.6, relwidth = 0.18)
@@ -37,6 +37,7 @@ class App(object):
         try:
             self.lista = show_options(self.textbox.get())
             self.listbox.insert(0, *self.lista)
+            self.text.set("Podano dostępne opcje")
         except:
             messagebox.showinfo("Błąd", "Prawdopodobnie brak dostępu do internetu")
 
