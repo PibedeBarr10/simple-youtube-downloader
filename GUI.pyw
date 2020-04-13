@@ -16,8 +16,7 @@ class App(object):
 
         self.textbox = Entry()
         self.textbox.place(relx = 0.2, rely = 0.01, relwidth = 0.4)
-        self.textbox.insert(0, 'https://www.youtube.com/watch?v=HluANRwPyNo')
-
+        
         self.button = Button(text="Pokaż", command = self.button_click)
         self.button.place(relx = 0.61, rely = 0.01)
 
