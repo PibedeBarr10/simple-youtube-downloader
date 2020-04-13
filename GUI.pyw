@@ -1,4 +1,4 @@
-from tkinter import Tk, Label, Entry, Button, Listbox, BROWSE, Button, StringVar, ANCHOR
+from tkinter import Tk, Label, Entry, Button, Listbox, BROWSE, Button, StringVar, ANCHOR, messagebox
 from YTload import show_options
 
 class App(object):
@@ -38,14 +38,17 @@ class App(object):
         self.listbox.insert(0, *self.lista)
 
     def download(self):
-        self.text.set("Trwa pobieranie")  # nie działa
-        stream = self.listbox.get(ANCHOR)
+        try:
+            self.text.set("Trwa pobieranie")  # nie działa
+            stream = self.listbox.get(ANCHOR)
 
-        for item in self.lista:
-            if(stream == str(item)):
-                item.download()
-        
-        self.text.set("Pobrano film")
+            for item in self.lista:
+                if(stream == str(item)):
+                    item.download()
+            
+            self.text.set("Pobrano film")
+        except:
+            messagebox.showinfo("Błąd", "Nie można pobrać pliku")
 
 
 app = App()
